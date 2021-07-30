@@ -1,1 +1,1 @@
-# CarsRentalAgency
+For car rental agencies it is difficult to manually handle availability of cars, bookings of customers ,allotment of cars and bill generation. So I would like to create desktop application for cars rental agency. Through this application the rental agency will be able to see availability of cars for renting, book appointments of customers for renting cars , allotment of cars to customers and there can be a provision to generate a bill for the customers.
