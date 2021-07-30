@@ -1,0 +1,47 @@
+<?xml version="1.0"?>
+<ArrayOfCustomer xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Customer>
+    <nameFirst>Sachin</nameFirst>
+    <nameLast>Patil</nameLast>
+    <dateBirth>12/12/1996</dateBirth>
+    <lNo>1310531</lNo>
+    <mobileNo>1261233</mobileNo>
+    <appNo>10</appNo>
+    <Street>Am jasdli</Street>
+    <City>lkjalksdj</City>
+    <Pincode>41330</Pincode>
+  </Customer>
+  <Customer>
+    <nameFirst>Jacky</nameFirst>
+    <nameLast>Shroff</nameLast>
+    <dateBirth>14/05/1995</dateBirth>
+    <lNo>615661</lNo>
+    <mobileNo>41660</mobileNo>
+    <appNo>620</appNo>
+    <Street>Newmann</Street>
+    <City>Mannheim</City>
+    <Pincode>645160</Pincode>
+  </Customer>
+  <Customer>
+    <nameFirst>jenny</nameFirst>
+    <nameLast>josh</nameLast>
+    <dateBirth>22-5-90</dateBirth>
+    <lNo>214338443</lNo>
+    <mobileNo>22314215421321</mobileNo>
+    <appNo>12</appNo>
+    <Street>sgvdhsdvjfbj</Street>
+    <City>gsvdhjbsdbjsd</City>
+    <Pincode>13233</Pincode>
+  </Customer>
+  <Customer>
+    <nameFirst>rohit</nameFirst>
+    <nameLast>sharma</nameLast>
+    <dateBirth>14-6-90</dateBirth>
+    <lNo>1151212</lNo>
+    <mobileNo>1234567892</mobileNo>
+    <appNo>10</appNo>
+    <Street>jdknv kdsn v</Street>
+    <City>vgbdsbjcbsd</City>
+    <Pincode>13131</Pincode>
+  </Customer>
+</ArrayOfCustomer>

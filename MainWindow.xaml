@@ -1,0 +1,137 @@
+﻿<Window x:Class="CarsRentalAgency.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CarsRentalAgency"
+        mc:Ignorable="d"
+         Loaded="Window_Loaded"
+        Title="CarsRentalAgency" Height="600" Width="750">
+    <Grid Margin="0,0,-6.4,-1">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="157*"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <StackPanel Margin="0,0,15.2,0" Orientation="Vertical">
+            <TextBlock HorizontalAlignment="Left" Margin="160,70,0,0" TextWrapping="Wrap" Text="View Customer List"  VerticalAlignment="Top" Height="28" Width="247" FontSize="20" RenderTransformOrigin="0.5,0.5">
+                <TextBlock.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="-0.121"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </TextBlock.RenderTransform>
+            </TextBlock>
+            <TextBox x:Name="Tbx_Filter" FontSize="20" Width="247" TextChanged="Tbx_Filter_TextChanged" ToolTip="Tell useful for user" HorizontalAlignment="Left" Text="" Height="24" Margin="159,0,0,0" />
+            <Image Source="search-client.png" Height="26" Margin="364,-24,374,0"/>
+            <ListBox x:Name="Lbx_Customer" HorizontalAlignment="Left" Height="358" VerticalAlignment="Top" Width="247"  Margin="159,0,0,0">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock Margin="0,0,0,4">
+                        <Run Text="{Binding nameFirst}" FontWeight="Bold"/>
+                            <Run Text=" "/><Run Text="{Binding nameLast}"/><Run Text=" "/>
+                            <!--<Run Text="{Binding dateBirth}"/>
+                            <Run Text=" "/><Run Text="{Binding nationality}" />
+                            <Run Text=" "/><Run Text="{Binding proofOfID}"/>
+                            <Run Text=" "/><Run Text="{Binding iDNo}" />
+                            <Run Text=" "/><Run Text="{Binding mobileNo }" />
+                            <Run Text=" "/><Run Text="{Binding appNo}"/>
+                            <Run Text=" "/><Run Text="{Binding Street}" />
+                            <Run Text=" "/><Run Text="{Binding City}" />
+                            <Run Text="{Binding Pincode}"/>-->
+                        </TextBlock>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+            <StackPanel Margin="258,0,374,0" Orientation="Horizontal" Height="44" >
+
+                <Button x:Name="Btn_Del" Content="Del" HorizontalAlignment="Right" Width="50" Height="32" Margin="15,6,5,5.2" Click="Btn_Del_Click"/>
+
+                <Button x:Name="Btn_Add" Content="Add" HorizontalAlignment="Right" Width="52" Height="32" Margin="15,6,5,5.2" Click="Btn_Add_Click" />
+
+            </StackPanel>
+        </StackPanel>
+
+        <!--Details-->
+
+        <StackPanel  Margin="432,35,0,-18.6" Orientation="Vertical" Height="555" VerticalAlignment="Top" HorizontalAlignment="Left"
+                    Width="362" DataContext="{Binding ElementName=Lbx_Customer, Path=SelectedItem}">
+            <TextBlock FontSize="14" FontWeight="Bold" Text="Customer Information" Margin="0,0,0.2,10"></TextBlock>
+            <StackPanel Orientation="Horizontal" Height="23" Margin="0,0,-0.2,10">
+                <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Salutation" VerticalAlignment="Top" Margin="0,0,10,0" Width="84"
+                       FontSize="14" Foreground="Black"/>
+                <ComboBox Width="180" Background="WhiteSmoke" VerticalAlignment="Top" SelectionChanged="ComboBox_SelectionChanged" Height="22">
+                    <ComboBoxItem>Mr.</ComboBoxItem>
+                    <ComboBoxItem>Mrs.</ComboBoxItem>
+                    <ComboBoxItem>Miss</ComboBoxItem>
+                    <ComboBoxItem>Dr.</ComboBoxItem>
+                </ComboBox>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Height="23" Margin="0,0,-0.2,10">
+                <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="First Name" VerticalAlignment="Top" Margin="0,0,20,0" Width="73"
+                       FontSize="14" Foreground="Black" x:Name="tb_FirstName" />
+                <TextBox TextWrapping="Wrap" FontSize="14" Text="{Binding nameFirst}" Width="180"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Height="23" Margin="0,0,-0.2,10">
+                <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Last Name" VerticalAlignment="Top" Margin="0,0,10,0" Width="83"
+                       FontSize="14" Foreground="Black" x:Name="tb_LastName"/>
+                <TextBox TextWrapping="Wrap" FontSize="14" Text="{Binding nameLast}" Width="180"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Height="16" Margin="0,0,82.6,8">
+                <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Birth Date" Margin="0,-4,10,-2" Width="82"
+                       FontSize="14" Foreground="Black"/>
+                <TextBox TextWrapping="Wrap" FontSize="14" Text="{Binding dateBirth}" Width="182" Margin="0,-4,0,-2"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Height="23" Margin="0,0,-0.2,10">
+                <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Licence No." VerticalAlignment="Top" Margin="0,0,10,0" Width="83"
+                       FontSize="14" Foreground="Black" />
+                <TextBox TextWrapping="Wrap" FontSize="14" Text="{Binding lNo}" Width="180" x:Name="tbx_IDNo"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Height="23" Margin="0,0,-0.2,10">
+                <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Mobile No." VerticalAlignment="Top" Margin="0,0,10,-14.8" Width="83"
+                       FontSize="14" Foreground="Black" />
+                <TextBox TextWrapping="Wrap" FontSize="14" Text="{Binding mobileNo}" Width="180" x:Name="tbx_MobileNo" />
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Height="16" Margin="0,0,0,8">
+                <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Address Details:" 
+                       FontSize="14" FontWeight="DemiBold" Foreground="Black" Width="106"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Height="23" Margin="0,2,-0.2,10">
+                <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="App No." VerticalAlignment="Top" Margin="0,0,10,0" Width="82"
+                       FontSize="14" Foreground="Black" />
+                <TextBox TextWrapping="Wrap" FontSize="14" Text="{Binding appNo}" Width="180" x:Name="tbx_AppNo" />
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Height="23" Margin="0,0,-0.2,10">
+                <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Street" VerticalAlignment="Top" Margin="0,0,10,0" Width="81"
+                       FontSize="14" Foreground="Black" />
+                <TextBox TextWrapping="Wrap" FontSize="14" Text="{Binding Street}" Width="180" x:Name="tbx_Street" />
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Height="23" Margin="0,0,-0.2,10">
+                <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="City" VerticalAlignment="Top" Margin="0,0,10,0" Width="81"
+                       FontSize="14" Foreground="Black" />
+                <TextBox TextWrapping="Wrap" FontSize="14" Text="{Binding City}" Width="180" x:Name="tbx_City" />
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Height="23" Margin="0,0,-0.2,10">
+                <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Pincode" VerticalAlignment="Top" Margin="0,0,10,0" Width="80"
+                       FontSize="14" Foreground="Black" />
+                <TextBox TextWrapping="Wrap" FontSize="14" Text="{Binding Pincode}" Width="180" x:Name="tbx_Pincode"/>
+            </StackPanel>
+            <StackPanel HorizontalAlignment="Left" Height="35" VerticalAlignment="Top" Width="150" Margin="0,5,0,0">
+                <Button Content="Next" Click="Btn_next_1" FontSize="25" Margin="3,0,0.4,-20" Background="LightBlue" Height="38"/>
+            </StackPanel>
+        </StackPanel>
+
+        <TextBlock HorizontalAlignment="Left" Height="35" TextWrapping="Wrap" Text="CarsRentalAgency" FontSize="20" FontWeight="Bold" Background="SkyBlue"  VerticalAlignment="Top" Width="794" Margin="0,0,-4,0" Grid.ColumnSpan="2"/>
+        <StackPanel Orientation="Vertical">
+            <Grid Name="Grd_Menu" HorizontalAlignment="Left" Height="391" VerticalAlignment="Top" Width="25" Margin="0,40,0,0" Background="AliceBlue" MouseEnter="Grd_Menu_MouseEnter" MouseLeave="Grd_Menu_MouseLeave" >
+                <Button x:Name="rentingcar"  Content="Renting Car" Background="BlanchedAlmond" HorizontalAlignment="Right" VerticalAlignment="Top" Width="95" Grid.Column="1"  Margin="0,109,34,0" Height="50" FontFamily="Arial" FontWeight="Bold" />
+            </Grid>
+        </StackPanel>
+
+    </Grid>
+</Window>
+
